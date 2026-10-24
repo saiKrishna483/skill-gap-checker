@@ -32,6 +32,9 @@ export default function Home() {
     });
   }
 
+  const total = result ? result.have.length + result.missing.length : 0;
+  const percent = result && total > 0 ? Math.round((result.have.length / total) * 100) : 0;
+
   return (
     <main className="mx-auto max-w-2xl p-6">
       <h1 className="text-3xl font-bold">Fresher Skill Gap Checker</h1>
@@ -71,12 +74,24 @@ export default function Home() {
 
       {result && (
         <div className="mt-6 space-y-4">
-          {result.have.length + result.missing.length === 0 ? (
+          {total === 0 ? (
             <p className="text-gray-600">
               No known skills found in this job description. Try pasting a longer one.
             </p>
           ) : (
             <>
+              <div>
+                <p className="text-2xl font-bold">{percent}% match</p>
+                <div className="mt-2 h-3 w-full rounded-full bg-gray-200">
+                  <div
+                    className="h-3 rounded-full bg-green-600"
+                    style={{ width: `${percent}%` }}
+                  />
+                </div>
+                <p className="mt-1 text-sm text-gray-600">
+                  You have {result.have.length} of {total} required skills.
+                </p>
+              </div>
               <div>
                 <h3 className="font-semibold text-green-600">
                   You have ({result.have.length})
