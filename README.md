@@ -19,6 +19,7 @@ A web app that helps freshers see how well their skills match a job description.
 Data Analyst, Data Scientist, Data Engineer, Full Stack Developer, Web Developer, Business Analyst, Java Developer, ML / AI Engineer
 
 ![Screenshot1](Screenshot1.png)
+![Screenshot2](Screenshot2.png)
 
 
 ## How it works
